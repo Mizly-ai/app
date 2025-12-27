@@ -1,0 +1,69 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Claude Code cache directory
+.claude/
+
+# Environment variables
+.env
+.env.local
+
+# openspec
+openspec/
+
+# Tauri signing keys (IMPORTANT for open source)
+*.key
+*.pem
+*.p12
+*.keystore
+
+# Tauri build outputs
+*.dmg
+*.app
+*.exe
+*.msi
+*.AppImage
+*.deb
+*.rpm
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# macOS
+._*
+.Spotlight-V100
+.Trashes
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Dev tool caches
+.eslintcache
+*.tsbuildinfo
+.cache/
