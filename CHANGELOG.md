@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2025-12-27
+
+### Bug Fixes
+- Cross-platform build compatibility
+- Move chrono to general dependencies (was accidentally in macOS-only)
+- Add Windows/Linux support for open_directory and open_file commands
+- Wrap macOS-specific RunEvent::Reopen in cfg attribute
+- Comment out Apple code signing in workflow (optional for open source)
+
 ## [0.1.0] - 2025-12-27
 
 ### Features
