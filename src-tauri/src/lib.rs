@@ -133,11 +133,18 @@ pub fn run() {
         .build(tauri::generate_context!())
         .expect("error while building tauri application")
         .run(|app, event| {
-            if let RunEvent::Reopen { .. } = event {
-                // Handle clicking the Dock icon on macOS
-                if let Some(window) = app.get_webview_window("main") {
-                    let _ = window::toggle_window(&window);
+            #[cfg(target_os = "macos")]
+            {
+                if let RunEvent::Reopen { .. } = event {
+                    // Handle clicking the Dock icon on macOS
+                    if let Some(window) = app.get_webview_window("main") {
+                        let _ = window::toggle_window(&window);
+                    }
                 }
+            }
+            #[cfg(not(target_os = "macos"))]
+            {
+                let _ = (&app, &event);
             }
         });
 }

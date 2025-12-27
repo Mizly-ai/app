@@ -44,6 +44,7 @@ pub struct FileSearchStore {
 }
 
 /// Response from listing FileSearchStores
+#[allow(dead_code)]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ListStoresResponse {
@@ -93,6 +94,7 @@ pub struct StringListValue {
 }
 
 /// Response from listing Documents
+#[allow(dead_code)]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ListDocumentsResponse {
@@ -136,11 +138,13 @@ pub struct OperationResponse {
 }
 
 /// API error response
+#[allow(dead_code)]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ApiErrorResponse {
     pub error: ApiErrorDetail,
 }
 
+#[allow(dead_code)]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ApiErrorDetail {
     pub code: i32,

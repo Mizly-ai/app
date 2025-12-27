@@ -10,11 +10,21 @@ pub fn open_directory(path: String) -> Result<()> {
         std::process::Command::new("open")
             .arg(&path)
             .spawn()
-            .map_err(|e| anyhow::anyhow!("Failed to open directory: {}", e))?;
+            .map_err(|e| tauri::Error::Anyhow(anyhow::anyhow!("Failed to open directory: {}", e)))?;
     }
-    #[cfg(not(target_os = "macos"))]
+    #[cfg(target_os = "windows")]
     {
-        return Err(anyhow::anyhow!("Not implemented for this platform"));
+        std::process::Command::new("explorer")
+            .arg(&path)
+            .spawn()
+            .map_err(|e| tauri::Error::Anyhow(anyhow::anyhow!("Failed to open directory: {}", e)))?;
+    }
+    #[cfg(target_os = "linux")]
+    {
+        std::process::Command::new("xdg-open")
+            .arg(&path)
+            .spawn()
+            .map_err(|e| tauri::Error::Anyhow(anyhow::anyhow!("Failed to open directory: {}", e)))?;
     }
     Ok(())
 }
@@ -26,11 +36,21 @@ pub fn open_file(path: String) -> Result<()> {
         std::process::Command::new("open")
             .arg(&path)
             .spawn()
-            .map_err(|e| anyhow::anyhow!("Failed to open file: {}", e))?;
+            .map_err(|e| tauri::Error::Anyhow(anyhow::anyhow!("Failed to open file: {}", e)))?;
     }
-    #[cfg(not(target_os = "macos"))]
+    #[cfg(target_os = "windows")]
     {
-        return Err(anyhow::anyhow!("Not implemented for this platform"));
+        std::process::Command::new("cmd")
+            .args(["/C", "start", "", &path])
+            .spawn()
+            .map_err(|e| tauri::Error::Anyhow(anyhow::anyhow!("Failed to open file: {}", e)))?;
+    }
+    #[cfg(target_os = "linux")]
+    {
+        std::process::Command::new("xdg-open")
+            .arg(&path)
+            .spawn()
+            .map_err(|e| tauri::Error::Anyhow(anyhow::anyhow!("Failed to open file: {}", e)))?;
     }
     Ok(())
 }
@@ -95,6 +115,10 @@ pub fn set_window_movable(window: WebviewWindow, movable: bool) -> Result<()> {
                 let _: () = msg_send![ns_window, setMovable: movable];
             }
         }
+    }
+    #[cfg(not(target_os = "macos"))]
+    {
+        let _ = (&window, &movable);
     }
     Ok(())
 }
