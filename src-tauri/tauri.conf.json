@@ -8,7 +8,7 @@
       "endpoints": [
         "https://github.com/Mizly-ai/app/releases/latest/download/latest.json"
       ],
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDgyNUI1NDAzMTAwRDQyMDQKUldRRVFnMFFBMVJiZ2o5d1ByUHh6cTBxSmY1d2c0WGU1eDNGZFRjdTZLSy9xbkJpWnRWdjhuUTAK"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDk1QTRGRjY5M0IyMjU0NzYKUldSMlZDSTdhZitrbGJkUFJCS1lyODBDaytVU2Z4Nm0xY1BhNWE5OENLNlhWb3FPQ2RaNGJkaDkK"
     }
   },
   "build": {
