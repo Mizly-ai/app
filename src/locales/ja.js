@@ -55,7 +55,7 @@ export default {
     downloadProgress: 'ダウンロード中：{progress}%',
     installing: 'アップデートをインストール中...',
     restartRequired: 'アップデートを完了するには再起動が必要です',
-    error: 'アップデートの確認に失敗しました'
+    error: 'アップデートに失敗しました：{message}'
   },
 
   // API Key settings

@@ -55,7 +55,7 @@ export default {
     downloadProgress: '下載中：{progress}%',
     installing: '正在安裝更新...',
     restartRequired: '需要重新啟動以完成更新',
-    error: '檢查更新失敗'
+    error: '更新失敗：{message}'
   },
 
   // API Key settings

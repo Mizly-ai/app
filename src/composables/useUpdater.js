@@ -66,14 +66,18 @@ export function useUpdater() {
     downloadProgress.value = 0
     error.value = null
 
+    let downloaded = 0
+
     try {
       await update.downloadAndInstall((event) => {
         if (event.event === 'Started') {
           downloadProgress.value = 0
+          downloaded = 0
         } else if (event.event === 'Progress') {
           const { chunkLength, contentLength } = event.data
+          downloaded += chunkLength
           if (contentLength) {
-            downloadProgress.value = Math.round((chunkLength / contentLength) * 100)
+            downloadProgress.value = Math.round((downloaded / contentLength) * 100)
           }
         } else if (event.event === 'Finished') {
           downloadProgress.value = 100

@@ -16,7 +16,7 @@ export function useHomeSettings() {
   const { t } = useI18n()
   const router = useRouter()
   const appStore = useAppStore()
-  const { checkForUpdate, downloadAndInstall, isChecking, updateInfo } = useUpdater()
+  const { checkForUpdate, downloadAndInstall, isChecking, isDownloading, downloadProgress, error: updateError } = useUpdater()
 
   // Update status message
   const updateStatus = ref('')
@@ -57,7 +57,16 @@ export function useHomeSettings() {
     if (result) {
       updateStatus.value = t('updater.updateAvailable', { version: result.info.version })
       // Auto download and install
+      updateStatus.value = t('updater.downloading')
       await downloadAndInstall(result.update)
+
+      // Check if there was an error after download attempt
+      if (updateError.value) {
+        updateStatus.value = t('updater.error', { message: updateError.value })
+        setTimeout(() => {
+          updateStatus.value = ''
+        }, 5000)
+      }
     } else {
       updateStatus.value = t('updater.noUpdate')
       // Clear status after 3 seconds

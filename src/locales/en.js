@@ -55,7 +55,7 @@ export default {
     downloadProgress: 'Downloading: {progress}%',
     installing: 'Installing update...',
     restartRequired: 'Restart required to complete update',
-    error: 'Update check failed'
+    error: 'Update failed: {message}'
   },
 
   // API Key settings
