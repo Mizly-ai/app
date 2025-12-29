@@ -98,7 +98,7 @@ pub fn create_main_window(app: &AppHandle, config: &AppConfig) -> Result<Webview
         .transparent(true)
         .shadow(false)
         .skip_taskbar(true)
-        .visible(false)
+        .visible(true)
         .focused(true)
         .disable_drag_drop_handler();
 
