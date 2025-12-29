@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2025-12-29
+
+### Bug Fixes
+- Set main window visible on startup
+
 ## [0.1.2] - 2025-12-28
 
 ### Bug Fixes
